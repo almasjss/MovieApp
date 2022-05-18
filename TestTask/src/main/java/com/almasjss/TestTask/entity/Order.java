@@ -12,11 +12,8 @@ import java.util.Objects;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Order {
+public class Order extends Info{
     //содерижмое объекта в произвольной форме, например [товар, кол-во, адрес доставки, номер телефона:
-    @Id
-    @GeneratedValue
-    private Integer orderId;
     private String orderName;
     private Integer orderN;
     private String addressTo;
@@ -25,8 +22,7 @@ public class Order {
 @OneToOne(targetEntity =User.class,cascade = CascadeType.ALL)
 private User user;
 
-    public Order(Integer orderId, String orderName, Integer orderN, String addressTo, String phoneNumber) {
-        this.orderId = orderId;
+    public Order(String orderName, Integer orderN, String addressTo, String phoneNumber) {
         this.orderName = orderName;
         this.orderN = orderN;
         this.addressTo = addressTo;

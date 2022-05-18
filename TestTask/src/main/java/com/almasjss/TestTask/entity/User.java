@@ -13,11 +13,8 @@ import java.util.Objects;
 @Getter
 @Setter
 @NoArgsConstructor
- public class User {
+ public class User extends Info {
      //на входе: логин, пароль, подтверждение пароля, ФИО, ссылка на аватар
-    @Id
-    @GeneratedValue
-    private Integer id;
      private String login;
      private String fullName;
      private String password;
@@ -27,8 +24,7 @@ import java.util.Objects;
      @OneToMany
      private List<Order> order;
 
-     public User(Integer id, String login, String fullName, String password,String rPassword,String linkToAvatar) {
-         this.id = id;
+     public User(String login, String fullName, String password,String rPassword,String linkToAvatar) {
          this.login = login;
          this.fullName = fullName;
          this.password = password;
